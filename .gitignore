@@ -9,6 +9,8 @@
 
 # Firebase files to ignore
 .firebase/*
+firebase.json
+.firebaserc
 
 # dependencies
 /node_modules
