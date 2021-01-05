@@ -1,1 +1,20 @@
-<h1>Base app</h1>
+<div class="container d-flex justify-content-center align-self-center">
+  <div class="pt-5">
+    <h3 class="row justify-content-center">Converter Application</h3>
+    <p class="row description">Below you may either choose to enter the data as plain text or upload a *.txt file to parse and convert.</p>
+    <div class="row justify-content-center">
+      <textarea class="mt-5" cols="70" rows="20" [(ngModel)]="text" placeholder="Enter data here..."></textarea>
+    </div>
+    <div class="custom-file mt-3">
+      <input class="custom-file-input" type="file" (change)="fileUploaded($event)">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+      <div class="name" *ngIf="!!file">File ready: {{file.name}}</div>
+    </div>
+    <div class="row buttons justify-content-center pt-3">
+      <button class="btn btn-primary" [disabled]="!text.length" (click)="convertText()">Convert
+        text</button>
+      <button class="btn btn-info ml-2" [disabled]="!file" (click)="convertFile()">Convert File</button>
+    </div>
+  </div>
+
+</div>
