@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ERROR_MESSAGES } from '../utils/constants';
-import { ConverterError, ConverterResults } from '../utils/interfaces';
+import { ConverterResults } from '../utils/interfaces';
 
 // Maybe Remove for provided in root if this service is used in more than one component?
 @Injectable({
@@ -22,7 +22,7 @@ export class ConverterService {
 
       // Filter out empty strings, used if the user has new lines before or after data sata
       // TODO: Maybe could use regex here to remove spaces before or after data sets
-      const rowStrings = text.split('\n').filter(s => s !== '');
+      const rowStrings = text.split('\n').filter(s => s !== '' && s !== ' ');
       const rows = rowStrings.map(row => {
         // Split the numbers in each row and convert from string to number
         return row.split(' ').map(n => +n);
